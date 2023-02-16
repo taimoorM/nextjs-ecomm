@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "./Button";
 
 function Hero() {
   return (
@@ -12,7 +13,7 @@ function Hero() {
           <span className="block">Driven By Values</span>
         </h2>
         <div>
-          {/* <Button title="Buy Now"/> */}
+          <Button title="Buy Now" />
           <a className="link">Learn More</a>
         </div>
       </div>
