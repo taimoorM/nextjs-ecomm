@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function Hero() {
   return (
     <section className="sticky top-0 mx-auto flex h-screen max-w-[1350px] items-center justify-between px-8">
@@ -13,6 +15,9 @@ function Hero() {
           {/* <Button title="Buy Now"/> */}
           <a className="link">Learn More</a>
         </div>
+      </div>
+      <div className="relative hidden h-[450px] w-[450px] transition-all duration-500 md:inline lg:h-[650px] lg:w-[600px]">
+        <Image src="/phone.png" fill alt="phone" />
       </div>
     </section>
   );
