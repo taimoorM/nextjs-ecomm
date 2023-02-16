@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { Tab } from "@headlessui/react";
 import Header from "../components/Header";
@@ -54,3 +54,18 @@ const Home: NextPage = (): JSX.Element => {
 };
 
 export default Home;
+
+// Backend Code
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // const categories = await fetchCategories();
+  // const products = await fetchProducts();
+  // const session = await getSession(context);
+
+  return {
+    props: {
+      // categories,
+      // products,
+      // session,
+    },
+  };
+};
