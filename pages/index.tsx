@@ -3,8 +3,14 @@ import Head from "next/head";
 import { Tab } from "@headlessui/react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import { fetchCategories } from "../utils/fetchCategories";
 
-const Home: NextPage = (): JSX.Element => {
+interface Props {
+  categories: Category[];
+}
+
+const Home = ({ categories }: Props): JSX.Element => {
+  console.log(categories);
   return (
     <div className="">
       <Head>
@@ -23,7 +29,7 @@ const Home: NextPage = (): JSX.Element => {
             </h2>
             <Tab.Group>
               <Tab.List className="flex justify-center">
-                {/* {categories.map((category) => (
+                {categories.map((category) => (
                   <Tab
                     key={category._id}
                     id={category._id}
@@ -37,7 +43,7 @@ const Home: NextPage = (): JSX.Element => {
                   >
                     {category.title}
                   </Tab>
-                ))} */}
+                ))}
               </Tab.List>
               {/* <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4">
                 <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
@@ -56,16 +62,16 @@ const Home: NextPage = (): JSX.Element => {
 export default Home;
 
 // Backend Code
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // const categories = await fetchCategories();
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
+  const categories = await fetchCategories();
   // const products = await fetchProducts();
   // const session = await getSession(context);
 
   return {
     props: {
-      // categories,
-      // products,
-      // session,
+      categories,
     },
   };
 };
