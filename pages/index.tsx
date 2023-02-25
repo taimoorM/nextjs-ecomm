@@ -4,9 +4,11 @@ import { Tab } from "@headlessui/react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { fetchCategories } from "../utils/fetchCategories";
+import { fetchProducts } from "../utils/fetchProducts";
 
 interface Props {
   categories: Category[];
+  products: Product[];
 }
 
 const Home = ({ categories }: Props): JSX.Element => {
@@ -66,12 +68,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
   const categories = await fetchCategories();
-  // const products = await fetchProducts();
+  const products = await fetchProducts();
   // const session = await getSession(context);
 
   return {
     props: {
       categories,
+      products,
     },
   };
 };
