@@ -5,14 +5,22 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
+import product from "../schemas/product";
 
 interface Props {
   categories: Category[];
   products: Product[];
 }
 
-const Home = ({ categories }: Props): JSX.Element => {
-  console.log(categories);
+const Home = ({ categories, products }: Props): JSX.Element => {
+  const showProducts = (category: number) => {
+    //filter products by category
+    return products
+      .filter((product) => product.category._ref === categories[category]._id)
+      .map((product) => {
+        // <Product/>
+      });
+  };
   return (
     <div className="">
       <Head>
@@ -47,12 +55,12 @@ const Home = ({ categories }: Props): JSX.Element => {
                   </Tab>
                 ))}
               </Tab.List>
-              {/* <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4">
+              <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4">
                 <Tab.Panel className="tabPanel">{showProducts(0)}</Tab.Panel>
                 <Tab.Panel className="tabPanel">{showProducts(1)}</Tab.Panel>
                 <Tab.Panel className="tabPanel">{showProducts(2)}</Tab.Panel>
                 <Tab.Panel className="tabPanel">{showProducts(3)}</Tab.Panel>
-              </Tab.Panels> */}
+              </Tab.Panels>
             </Tab.Group>
           </div>
         </section>
