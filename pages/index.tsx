@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
-import product from "../schemas/product";
+import Product from "../components/Product";
 
 interface Props {
   categories: Category[];
@@ -17,9 +17,7 @@ const Home = ({ categories, products }: Props): JSX.Element => {
     //filter products by category
     return products
       .filter((product) => product.category._ref === categories[category]._id)
-      .map((product) => {
-        // <Product/>
-      });
+      .map((product) => <Product product={product} key={product._id} />);
   };
   return (
     <div className="">
