@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
 import Product from "../components/Product";
+import Basket from "../components/Basket";
 
 interface Props {
   categories: Category[];
@@ -20,12 +21,13 @@ const Home = ({ categories, products }: Props): JSX.Element => {
       .map((product) => <Product product={product} key={product._id} />);
   };
   return (
-    <div className="">
+    <div>
       <Head>
         <title>Mango</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Basket />
       <main>
         <div className="relative h-[200vh] bg-[#e7ecee]">
           <Hero />
