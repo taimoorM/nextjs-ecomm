@@ -16,13 +16,16 @@ function Product({ product }: Props) {
 
     toast.success(`${product.title} has been added to your basket`, {
       style: {
-        border: "1px solid #713200",
+        border: "1px solid #8ec5ff",
         padding: "16px",
-        color: "#713200",
+        color: " #1c4f6d",
+        fontSize: "16px",
+        backgroundColor: "#e2f2ff",
+        fontWeight: "bold",
       },
       iconTheme: {
-        primary: "#713200",
-        secondary: "#FFFAEE",
+        primary: "linear-gradient(to right, #ec4899, #8b5cf6)",
+        secondary: "#fff",
       },
     });
   };
